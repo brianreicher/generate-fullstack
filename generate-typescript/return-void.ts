@@ -27,6 +27,6 @@ function returnUndef(x: any): undefined{
 // Functions as types
 
 // let combinedValues: Function;
-let combinedValues: () => number;
+let combinedValues: (a: number, b: number) => number;
 combinedValues = add;
 console.log(combinedValues(20, 40));
