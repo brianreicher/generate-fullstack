@@ -1,53 +1,42 @@
 // Poor syntax
-const bad_syntax_person: {
-    name: string;
-     age: number;
-    }= 
-{
+var bad_syntax_person = {
     name: 'Brian',
     age: 20
-}
-
+};
 // Better object syntax
-const person = {
+var person = {
     name: 'Brian',
     age: 20,
     hobbies: ['Sports', 'Software']
-}
-
-let favAct: string[];
-let favHoliday: any[];
+};
+var favAct;
+var favHoliday;
 favAct = ['baseball', 'football'];
-favHoliday = ['christmas', 'december', 25]
-
+favHoliday = ['christmas', 'december', 25];
 // for(let i in person.hobbies)
 // {
 //     console.log(person.hobbies[i])
 // }
-
 // Better loop syntax
-for(const i of person.hobbies)
-{
+for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
+    var i = _a[_i];
     console.log(i.toUpperCase());
 }
-
 // Tuples -> fixed length array
-
-const human: {
-    role: [number, string];
-}=
-{ role: [2, 'engineer']
-}
-
+var human = { role: [2, 'engineer']
+};
 human.role.push('admin');
 human.role[1] = 'ml engineer';
-
 // Enums
-enum Role {ADMIN = 'ADMIN', READ_ONLY = 100, AUTHOR = 'AUTHOR'}
-const human1 = {
+var Role;
+(function (Role) {
+    Role["ADMIN"] = "ADMIN";
+    Role[Role["READ_ONLY"] = 100] = "READ_ONLY";
+    Role["AUTHOR"] = "AUTHOR";
+})(Role || (Role = {}));
+var human1 = {
     role: Role.ADMIN
-}
-
+};
 // any -> fallback, avoid using
-let favColors: any[];
+var favColors;
 favColors = ['blue', false];
