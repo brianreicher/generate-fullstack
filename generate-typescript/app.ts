@@ -24,8 +24,11 @@ function add_js(n1, n2)
 }
 
 const number1 = 5;
+let num1: number;
+num1 = 10;
 const number2 = 2.8;
 const printResult = true;
-const res = "TypeScript";
+const res = "Result is: ";
 add(number1, number2, printResult, res);
-// console.log(result);
+
+// object types --> any JavaScript object + more specifc types

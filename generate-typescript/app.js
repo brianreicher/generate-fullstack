@@ -19,8 +19,10 @@ function add_js(n1, n2) {
     return n1 + n2;
 }
 var number1 = 5;
+var num1;
+num1 = 10;
 var number2 = 2.8;
 var printResult = true;
-var res = "TypeScript";
+var res = "Result is: ";
 add(number1, number2, printResult, res);
 // console.log(result);
