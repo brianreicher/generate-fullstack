@@ -103,3 +103,34 @@ arrayOfArraysOfNumbers = [
     [2, 4, 6],
     [3, 6, 9],
   ];
+
+// Spreads
+const x: number[] = [1, 2, 3, 4];
+const y: number[] = [5, 6, 7, 8];
+var z  = [...x, ...y]
+
+// Tuples --> array of fixed size
+
+let tuple: [number, string, number];
+
+
+function logPair(name: string, value: number):  void {
+    console.log(`${name} has ${value}`);
+  }
+
+const pairTupleCorrect: [string, number] = ["Amage", 1];
+
+logPair(...pairTupleCorrect); // Ok
+
+// foreach js 
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach(element => console.log(element));
+
+// as const 
+
+const pairMutable: [number, string] = [1157, "Tomoe"];
+pairMutable[0] = 1247; // Ok
+
+const pairConst = [1157, "Tomoe"] as const;
+// pairConst[0] = 1247;  NOT OK
