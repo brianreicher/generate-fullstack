@@ -1,4 +1,5 @@
 // Interfaces
+var _a;
 var valueLater;
 valueLater = {
     born: 1935,
@@ -44,3 +45,42 @@ var WithPropertyParameters = /** @class */ (function () {
 var instance = new WithPropertyParameters();
 instance.takesParameters(true); // Ok
 // instance.takesParameters(123); not ok
+var WithValue = /** @class */ (function () {
+    // unused: number;
+    // Error: Property 'unused' has no initializer
+    // and is not definitely assigned in the constructor.
+    function WithValue() {
+        this.immediate = 0; // Ok
+        this.later = 1;
+    }
+    return WithValue;
+}());
+var CheckInit = /** @class */ (function () {
+    function CheckInit(propty) {
+        this.property = propty;
+    }
+    return CheckInit;
+}());
+new CheckInit('length').property.length;
+// add ! after variable name to disable init check 
+var ActivitiesQueue = /** @class */ (function () {
+    function ActivitiesQueue() {
+    }
+    ActivitiesQueue.prototype.initialize = function (pending) {
+        this.pending = pending;
+    };
+    ActivitiesQueue.prototype.next = function () {
+        return this.pending.pop();
+    };
+    return ActivitiesQueue;
+}());
+var activities = new ActivitiesQueue();
+activities.initialize(['eat', 'sleep', 'learn']);
+activities.next();
+var MissingInitializer = /** @class */ (function () {
+    function MissingInitializer() {
+    }
+    return MissingInitializer;
+}());
+(_a = new MissingInitializer().property) === null || _a === void 0 ? void 0 : _a.length; // Ok
+// can also add readonly properties in additon to optional ones

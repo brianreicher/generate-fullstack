@@ -81,3 +81,54 @@ const instance = new WithPropertyParameters();
 instance.takesParameters(true); // Ok
 
 // instance.takesParameters(123); not ok
+
+class WithValue {
+    immediate = 0; // Ok
+    later: number; // Ok (set in the constructor)
+    mayBeUndefined: number | undefined; // Ok (allowed to be undefined)
+
+    // unused: number;
+    // Error: Property 'unused' has no initializer
+    // and is not definitely assigned in the constructor.
+
+    constructor() {
+        this.later = 1;
+    }
+}
+
+class CheckInit{
+    property: string;
+
+    constructor(propty){
+        this.property = propty;
+    }
+}
+
+new CheckInit('length').property.length;
+
+// add ! after variable name to disable init check 
+
+class ActivitiesQueue {
+    pending!: string[]; // Ok
+
+    initialize(pending: string[]) {
+        this.pending = pending;
+    }
+
+    next() {
+        return this.pending.pop();
+    }
+}
+
+const activities = new ActivitiesQueue();
+
+activities.initialize(['eat', 'sleep', 'learn'])
+activities.next();
+
+class MissingInitializer {
+    property?: string;
+}
+
+new MissingInitializer().property?.length; // Ok
+
+// can also add readonly properties in additon to optional ones
