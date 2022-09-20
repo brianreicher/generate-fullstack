@@ -1,2 +1,2 @@
 # generate-fullstack
-TypeScript &amp; JavaScript 
+Node.js, TypeScript, &amp; JavaScript 
