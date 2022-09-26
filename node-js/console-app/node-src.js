@@ -27,7 +27,7 @@ exports.myDateTime = () => {
 var fs = require('fs');
 const html_port = 3000;
 http.createServer((res, req) => {
-  fs.readFile('../../html/index.html', function(err, data) {
+  fs.readFile('../../html/index.html', (err, data) => {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data);
     return res.end();
@@ -35,3 +35,5 @@ http.createServer((res, req) => {
 }).listen(html_port);
 
 console.log(`HTML server is running at http://localhost:${html_port}`);
+
+//fs.appendFiile(), open(), writeFile()
